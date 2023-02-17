@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react"
-import { Table , Figure, Alert,Button} from "react-bootstrap"
+import { Table , Figure, Alert,Button,Row,Col} from "react-bootstrap"
 import { useLocation } from "react-router-dom"
 import NavBar from "./Navbar"
 import "./datacss.css"
-import ListGroup from 'react-bootstrap/ListGroup';
-// import Evolution_Chain from "./evolution_chain"
 import Pkm_Species from "./pokemon_species"
 import MyType from "../showType"
 import {
@@ -17,6 +15,7 @@ import {
     Legend,
   } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import NextPage from "../nextPage"
 
 ChartJS.register(
     CategoryScale,
@@ -31,7 +30,6 @@ const TestGetParams = ()=>{
     const location = useLocation()
     const params = new URLSearchParams(location.search)
     const [loading,setLoading] = useState(true)
-    // console.log(params.get("pokemon"))
     const url = "https://pokeapi.co/api/v2/pokemon/"+String(params.get("pokemon"))
     // AddCount()
     useEffect(()=>{
@@ -43,8 +41,7 @@ const TestGetParams = ()=>{
         )
         
     },[url])
-    // console.log(data)
-    // console.log(params)
+
     const FillZero = (number) =>{
         var temp = String(number)
           if(String(number).length == 1){
@@ -56,7 +53,6 @@ const TestGetParams = ()=>{
             return "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+temp+".png"
           }
       }
-    // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
     const options = {
         responsive: true,
         plugins: {
@@ -68,7 +64,7 @@ const TestGetParams = ()=>{
             text: 'Pokemon Stats',
           },
         },
-      };
+      }
     const dataGraph = {
         labels: [],
         datasets: [
@@ -118,43 +114,53 @@ const TestGetParams = ()=>{
                     <Button variant="secondary"
                     style={{
                         margin: "0 250px",
-                        padding: "0 50px",
+                        padding: "0 80px",
                         fontWeight: "bold"
                     }}
                     >{data.forms[0].name.charAt(0).toUpperCase()}{data.forms[0].name.slice(1)}</Button>{' '}
                     </Figure>
+              
                   </td>
                   <td rowSpan={3}>
                   <Alert variant="secondary">
-                <Alert.Heading>Type</Alert.Heading>
-                    <MyType key={data.id}
+                    <Row>
+                    <Col>
+                  <Alert.Heading>Type</Alert.Heading>
+                  <MyType key={data.id}
                     props={{count: data.id}}
                 />
-           
-                <hr />
-                <Alert.Heading>Ability</Alert.Heading>
+                  </Col>
+                    </Row>
+                <Row>
+                  
+                  <Col>
+                  <Alert.Heading>Ability</Alert.Heading>
                 {data.abilities.map((item)=>
-                    <Button variant="warning" style={{marginRight: "15px", 
+                    <Button variant="warning" style={{margin: "5px 15px", 
                     padding: "10px 60px",
                     }}
                     
                     >{item.ability.name}</Button>
-                )}
-                <hr></hr>
-                <Alert.Heading>Height& Weight</Alert.Heading>
-                <ListGroup>
-                <ListGroup.Item action variant="secondary">
-                  <Button variant="secondary">Height: {data.height}</Button>
-                </ListGroup.Item>
-                <ListGroup.Item action variant="dark">
-                <Button variant="secondary">Weight: {data.weight}</Button>
+                )}                  
+                   </Col>
+                   <Col> 
+                   <Alert.Heading>Height and Weight</Alert.Heading>
+                  <Row><Col>
+                  <Button variant="success">Height: {data.height}</Button>
 
-                </ListGroup.Item>
-              </ListGroup>
+                  </Col>
+                  <Col>
+                  <Button variant="primary">Weight: {data.weight}</Button>
+
+                  </Col></Row>
+          
+        </Col>
+                  </Row>
+               
               <hr></hr>
               {/* <Alert.Heading>Evolution Chain</Alert.Heading> */}
               <Alert.Heading>Stats</Alert.Heading>
-              <Bar options={options} data={dataGraph} width={'480px'}/>;
+              <Bar options={options} data={dataGraph} width={'480px'}/>
                 </Alert>
                   </td>
         
@@ -167,6 +173,7 @@ const TestGetParams = ()=>{
               </tbody>
             </Table>
             <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/"+String(params.get("pokemon"))}></Pkm_Species>
+            <NextPage page_url={String(params.get("pokemon"))}></NextPage>
             </>
             
       

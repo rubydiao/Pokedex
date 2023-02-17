@@ -36,10 +36,15 @@ const Evolution_Chain = ({chain_url}) => {
         if(data.chain.species.name){
             evo_arr.push([data.chain.species.name,data.chain.species.url])
             if(data.chain.evolves_to.length!== 0){
-                evo_arr.push([data.chain.evolves_to[0].species.name,data.chain.evolves_to[0].species.url])
+                data.chain.evolves_to.map((item)=>
+                  evo_arr.push([item.species.name,item.species.url])
+                )
                 if(data.chain.evolves_to[0].evolves_to.length!= 0 ){
+                  data.chain.evolves_to[0].evolves_to.map((item)=>
+                  evo_arr.push([item.species.name,item.species.url])
 
-                    evo_arr.push([data.chain.evolves_to[0].evolves_to[0].species.name,data.chain.evolves_to[0].evolves_to[0].species.url])
+                  )
+                    // evo_arr.push([data.chain.evolves_to[0].evolves_to[0].species.name,data.chain.evolves_to[0].evolves_to[0].species.url])
                 }
             }
         }
@@ -64,7 +69,6 @@ const Evolution_Chain = ({chain_url}) => {
                         <Card.Text style={{color: "black"}}>
                           Pokemon Number: #{GetOnlyNum(item[1])}
                         </Card.Text>
-                    
                   
                       </Card.Body>
                     </Card>

@@ -25,13 +25,13 @@ const MyType = ({props}) =>{
                         case "grass":
                             return(
                                 <Button  style={{marginRight: "15px", backgroundColor: "#16bd74",
-                            padding: "10px 15px",
+                            padding: "10px 15px",border: "1px solid #16bd74"
                             }}>{item.type.name}</Button>
                             )
                             
                         case "electric":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#d5d40d94",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#d5d40d94",border: "1px solid #d5d40d94",
                             padding: "10px 15px",
                             }}>{item.type.name}</Button>
                             )
@@ -44,70 +44,69 @@ const MyType = ({props}) =>{
                             )
                         case "fire":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#dd2024",
-                                padding: "10px 15px"
-                                }}>{item.type.name}</Button>
+                                <Button variant="danger" style={{marginRight: "15px", 
+                                padding: "10px 15px",}}>{item.type.name}</Button>
                                 
                             )
                         case "poison":
                             return(
                                 <Button  style={{marginRight: "15px", backgroundColor: "#8b37b1",
-                                padding: "10px 15px"
+                                padding: "10px 15px",border: "1px solid #8b37b1"
                                 }}>{item.type.name}</Button>
                                 
                             )
                         case "bug":
                                 return(
-                                    <Button  style={{marginRight: "15px", backgroundColor: "#a2d90f",
+                                    <Button  style={{marginRight: "15px", backgroundColor: "#a2d90f", border: "1px solid #a2d90f",
                                     padding: "10px 15px"
                                     }}>{item.type.name}</Button>
                                     
                                 ) 
                         case "ground":
                                 return(
-                                    <Button  style={{marginRight: "15px", backgroundColor: "#6c5405",
+                                    <Button  style={{marginRight: "15px", backgroundColor: "#6c5405",border: "1px solid #6c5405",
                                     padding: "10px 15px"
                                     }}>{item.type.name}</Button>
                                     
                                 )
                         case "ice":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#82cee9",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#82cee9",border: "1px solid #82cee9",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                                 
                             )
                         case "psychic":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#df26b2",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#df26b2",border: "1px solid #df26b2",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                                 
                             )
                         case "dragon":
                                 return(
-                                    <Button  style={{marginRight: "15px", backgroundColor: "#f58e2b",
+                                    <Button  style={{marginRight: "15px", backgroundColor: "#f58e2b",border: "1px solid #f58e2b",
                                     padding: "10px 15px"
                                     }}>{item.type.name}</Button>
                                     
                                 )
                         case "ghost":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#d890e3",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#d890e3",border: "1px solid #d890e3",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                                 
                             )
                         case "fighting":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#b9c9d7",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#b9c9d7",border: "1px solid #b9c9d7",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                                 
                             )
                         case "rock":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#B8A038",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#B8A038",border: "1px solid #B8A038",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                             
