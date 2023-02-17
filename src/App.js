@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Pkm_Species from "./forRoute/pokemon_species";
+const App = () => {
+  
+  // const findAnyName = async() => {
+  //   const urls = ["https://pokeapi.co/api/v2/evolution-chain/1/", "https://pokeapi.co/api/v2/evolution-chain/2/"];
+  //     try{
+  //       let res = await Promise.all(urls.map(e => fetch(e)))
+  //       let resJson = await Promise.all(res.map(e => e.json()))
+  //       resJson = resJson.map(e => e.chain.species.name)
+  //       arr.push(resJson)
+  //     }catch(err) {
+  //       console.log(err)
+  //     }
+  //   }
+    
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  //  findAnyName()
+   return  (
+    <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/9/"}></Pkm_Species>
+   )
+   
+ 
 }
 
-export default App;
+export default App
