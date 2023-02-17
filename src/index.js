@@ -17,9 +17,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>  
-      <HashRouter basename='/Pokedex'>
+      <BrowserRouter basename='/Pokedex'>
       <Routes>
-        <Route path={'/'} element={<MyHome></MyHome>}/>
+        <Route path={'/'} exact element={<MyHome></MyHome>}/>
         <Route path={'/kanto'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={151} kantoNumberStart={0}></KantoFetchRegion>} />
         <Route path={'/johto'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={251} kantoNumberStart={151}></KantoFetchRegion>} />
         <Route path={'/hoenn'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={386} kantoNumberStart={251}></KantoFetchRegion>} />
@@ -38,7 +38,7 @@ root.render(
 
         {/* </Route> */}
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
   </React.StrictMode>
 );
 

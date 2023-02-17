@@ -80,7 +80,7 @@ const Kanto = ({myurl,kantoNumberEnd,kantoNumberStart}) =>{
                          <MyType key={subItems[1]}
                             props={{count: subItems[1]}}
                         />
-                        <Button variant="success" href={`/Pokedex/#/kanto/pokemon?pokemon=${subItems[1]}`}
+                        <Button variant="success" href={`/Pokedex/kanto/pokemon?pokemon=${subItems[1]}`}
                         style={{
                           padding: "5px 80px",
                           marginTop: "10px"
