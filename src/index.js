@@ -20,17 +20,17 @@ root.render(
       <BrowserRouter>
       <Routes>
         <Route path={'/Pokedex'} element={<MyHome></MyHome>}/>
-        <Route path={'kanto'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={151} kantoNumberStart={0}></KantoFetchRegion>} />
-        <Route path={'johto'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={251} kantoNumberStart={151}></KantoFetchRegion>} />
-        <Route path={'hoenn'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={386} kantoNumberStart={251}></KantoFetchRegion>} />
-        <Route path={'sinnoh'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={493} kantoNumberStart={386}></KantoFetchRegion>} />
-        <Route path={'unova'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={649} kantoNumberStart={493}></KantoFetchRegion>} />
-        <Route path={'kalos'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={721} kantoNumberStart={649}></KantoFetchRegion>} />
-        <Route path={'alola'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={809} kantoNumberStart={721}></KantoFetchRegion>} />
-        <Route path={'galar'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={905} kantoNumberStart={809}></KantoFetchRegion>} />
-        <Route path={'paldea'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={1008} kantoNumberStart={905}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/kanto'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={151} kantoNumberStart={0}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/johto'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={251} kantoNumberStart={151}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/hoenn'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={386} kantoNumberStart={251}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/sinnoh'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={493} kantoNumberStart={386}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/unova'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={649} kantoNumberStart={493}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/kalos'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={721} kantoNumberStart={649}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/alola'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={809} kantoNumberStart={721}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/galar'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={905} kantoNumberStart={809}></KantoFetchRegion>} />
+        <Route path={'/Pokedex/paldea'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={1008} kantoNumberStart={905}></KantoFetchRegion>} />
 
-        <Route path={'kanto/pokemon'} element={<TestGetParams/>} />
+        <Route path={'/Pokedex/kanto/pokemon'} element={<TestGetParams/>} />
 
        {/* <Route path={'/'} element={<App></App>} /> */}
         {/* <Route path={'kanto'} element={<TestGetParams />} /> */} 
