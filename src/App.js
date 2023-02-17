@@ -1,4 +1,3 @@
-import Pkm_Species from "./forRoute/pokemon_species";
 const App = () => {
   
   // const findAnyName = async() => {
@@ -16,7 +15,8 @@ const App = () => {
 
   //  findAnyName()
    return  (
-    <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/9/"}></Pkm_Species>
+    <h1>test</h1>
+    // <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/9/"}></Pkm_Species>
    )
    
  
