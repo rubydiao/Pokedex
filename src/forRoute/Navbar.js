@@ -12,7 +12,7 @@ const NavBar = () =>{
     <Container>
         <Navbar bg="dark" expand="lg" fixed='top' variant="dark"> 
             <Container>
-                <Navbar.Brand href="/">Pokedex's Narutchai</Navbar.Brand>
+                <Navbar.Brand href="/Pokedex">Pokedex's Narutchai</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
