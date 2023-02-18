@@ -173,7 +173,7 @@ const TestGetParams = ()=>{
               </tbody>
             </Table>
             <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/"+String(params.get("pokemon"))}></Pkm_Species>
-            <NextPage page_url={String(params.get("pokemon"))}></NextPage>
+            {/* <NextPage page_url={String(params.get("pokemon"))}></NextPage> */}
             </>
             
       

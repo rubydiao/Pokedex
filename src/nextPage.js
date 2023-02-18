@@ -15,13 +15,13 @@ const NextPage = ({page_url}) =>{
                 <Row >
                     <Col className="d-grid gap-2">
                         {pagePrevious >= 1 &&
-                        <Button variant="primary" size="lg" href={`/#/Pokedex/kanto/pokemon?pokemon=${pagePrevious}`}>
+                        <Button variant="primary" size="lg" href={`/#/kanto/pokemon?pokemon=${pagePrevious}`}>
                             Previous
                         </Button>}
                     </Col>
                     <Col className="d-grid gap-2">
                         {pageNext <= 1008 &&
-                        <Button variant="success" size="lg" href={`/#/Pokedex/kanto/pokemon?pokemon=${pageNext}`}>
+                        <Button variant="success" size="lg" href={`/#/kanto/pokemon?pokemon=${pageNext}`}>
                             Next
                         </Button>}
                     </Col>
