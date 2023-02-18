@@ -5,14 +5,14 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const NavBar = () =>{
   const listRegionName = [["/Pokedex/#/kanto","Kanto"],["/Pokedex/#/johto","Johto"],["/Pokedex/#/hoenn","Hoenn"],
-  ["/#/sinnoh","Sinnoh"],["/#/unova","Unova"],["/#/kalos","Kalos"],["/#/alola","Alola"],
-  ["/#/galar","Galar"],["/#/paldea","Paldea"]
+  ["/Pokedex/#/sinnoh","Sinnoh"],["/Pokedex/#/unova","Unova"],["/Pokedex/#/","Kalos"],["/Pokedex/#/alola","Alola"],
+  ["/Pokedex/#/galar","Galar"],["/Pokedex/#/paldea","Paldea"]
 ]
   return (
     <Container>
         <Navbar bg="dark" expand="lg" fixed='top' variant="dark"> 
             <Container>
-                <Navbar.Brand href="/#">Pokedex's Narutchai</Navbar.Brand>
+                <Navbar.Brand href="/Pokedex/#/">Pokedex's Narutchai</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
