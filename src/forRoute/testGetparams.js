@@ -158,7 +158,6 @@ const TestGetParams = ()=>{
                   </Row>
                
               <hr></hr>
-              {/* <Alert.Heading>Evolution Chain</Alert.Heading> */}
               <Alert.Heading>Stats</Alert.Heading>
               <Bar options={options} data={dataGraph} width={'480px'}/>
                 </Alert>

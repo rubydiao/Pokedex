@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react"
-import Card from 'react-bootstrap/Card';
-import MyType from "../../showType";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { Button, CardGroup } from "react-bootstrap";
-
+import Pagination from 'react-bootstrap/Pagination';
+import DisplayPkm from "./Display";
 const Kanto = ({myurl,kantoNumberEnd,kantoNumberStart}) =>{
 
     const [data,setData] = useState(null)
     const [loading,setLoading] = useState(true)
+    const [pageNr,setPageNr] = useState(1)
     const url = myurl
 
     useEffect(()=>{
@@ -23,6 +20,7 @@ const Kanto = ({myurl,kantoNumberEnd,kantoNumberStart}) =>{
         )
         
     },[url])
+
     var arr =[]
     var newArr=[]
     const filterArr = () =>{
@@ -43,58 +41,99 @@ const Kanto = ({myurl,kantoNumberEnd,kantoNumberStart}) =>{
       }
       return arr
   }
-  const FillZero = (number) =>{
-    var temp = String(number)
-      if(String(number).length == 1){
-        return "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+"00"+temp+".png"
-      }
-      else if(String(number).length == 2){
-        return "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+"0"+temp+".png"
+
+
+  // let active = 2
+  let items_pg =[]
+  const GetAmountPage = (size_data) =>{
+      if(String(size_data/3).includes(".")){
+        for(let i = 1 ; i<=(size_data/3)+1 ;i++){
+          items_pg.push(
+            <Pagination.Item key={i} active={i === pageNr} 
+            onClick={
+              ()=>setPageNr(i)
+            }
+            >
+                {i}
+            </Pagination.Item>
+          )
+        } 
       }else{
-        return "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+temp+".png"
+        for(let i = 1 ; i<=(size_data/3) ;i++){
+          items_pg.push(
+          <Pagination.Item key={i} active={i === pageNr}
+          onClick={
+            ()=>setPageNr(i)
+          }
+          >
+              {i}
+          </Pagination.Item>
+        )
+      } 
+
       }
+      return items_pg
+      
+      
   }
+  // const DisplayPkm = (pg_active,pkn_arr,size_data) =>{
+  //       var cardList = []
+  //       var tempPg = pg_active*3
+  //       // console.log(tempPg)
+  //       // console.log(size_data)
+  //       if(size_data < tempPg){        
+  //         // console.log(tempPg+"in if")
+
+  //         let sum = tempPg - size_data 
+  //         tempPg = tempPg - sum
+  //         // console.log(tempPg+"after substract")
+  //       }
+  //       // console.log(tempPg)
+
+  //       for(let i = (pg_active*3) - 3 ; i < tempPg ; i++){
+  //         // console.log(pkn_arr[i])
+
+  //         for(let j = 0 ; j < pkn_arr[i].length ; j++){
+  //           cardList.push(
+  //                   <Col >
+  //                     <Card style={{ width: '15rem ', marginBottom: '25px'}} >
+  //                       <Card.Img variant="top" style={{height: '280px' ,width: '230px'}}
+  //                       src={FillZero(parseInt(pkn_arr[i][j][1]))}
+  //                       />
+  //                       <Card.Body>
+  //                         <Card.Title> {pkn_arr[i][j][0]}</Card.Title>
+  //                         <Card.Text>
+  //                           Pokemon Number: #{pkn_arr[i][j][1]}
+  //                         </Card.Text>
+  //                         <MyType key={pkn_arr[i][1]}
+  //                             props={{count: pkn_arr[i][j][1]}}
+  //                         />
+  //                         <Button variant="success" href={`/Pokedex/#/kanto/pokemon?pokemon=${pkn_arr[i][j][1]}`}
+  //                         style={{
+  //                           padding: "5px 80px",
+  //                           marginTop: "10px"
+  //                         }}
+  //                         >Detail!</Button>
+  //                       </Card.Body>
+  //                     </Card>
+  //                     </Col>
+  //           )
+  //       }
+  //       }
+  //       return <Row style={{ marginBottom: '40px'}}>{cardList}</Row>
+      
+    
+   
+  // }
+
     return(
         <>
             {!loading && data && filterArr()&&
           
         <Container style={{marginTop: '150px' }}>
-    
-        
-        {arr.map((item, index) => {
-            return(
-              <Row key={index} style={{ marginBottom: '40px'}} >
-                {item.map((subItems,sIndex)=>{
-                  return <Col key={sIndex} >
-                    {/* <CardGroup> */}
-                    <Card style={{ width: '15rem '}} >
-                      <Card.Img variant="top" style={{height: '280px' ,width: '230px'}}
-                      // src={`https://img.pokemondb.net/artwork/large/${subItems[0]}.jpg`} 
-                      src={FillZero(parseInt(subItems[1]))}
-                      />
-                      <Card.Body>
-                        <Card.Title> {subItems[0]}</Card.Title>
-                        <Card.Text>
-                          Pokemon Number: #{subItems[1]}
-                        </Card.Text>
-                         <MyType key={subItems[1]}
-                            props={{count: subItems[1]}}
-                        />
-                        <Button variant="success" href={`/Pokedex/#/kanto/pokemon?pokemon=${subItems[1]}`}
-                        style={{
-                          padding: "5px 80px",
-                          marginTop: "10px"
-                        }}
-                        >Detail!</Button>
-                      </Card.Body>
-                    </Card>
-                    </Col>
-                })
-                }
-              </Row>
-            ) 
-          })
-          }
+        <Pagination size="lg" >{GetAmountPage(arr.length)}</Pagination>
+        <DisplayPkm pg_active={pageNr} pkn_arr={arr} size_data={arr.length}/>
+
         </Container>}
         </>
     )
