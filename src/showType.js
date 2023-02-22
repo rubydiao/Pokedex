@@ -128,4 +128,81 @@ const MyType = ({props}) =>{
     )
 
 }
+export const Weaknesstype = ({props}) =>{
+    async function getCharmandar(){
+        const pokemonListUrl = "https://pokeapi.co/api/v2/pokemon/1"
+    
+        // get list of pokemon
+        const response = await fetch(pokemonListUrl)
+        const pokeList = await response.json()
+    
+        // find charmander in the array of pokemon
+        const type = []
+        pokeList.types.map((item)=>type.push(item.type.name))
+    
+        // // request the charmandar data
+        const listAPI = []
+        const response2 = await fetch("https://pokeapi.co/api/v2/type/")
+        const getLink = await response2.json()
+        getLink.results.map((item)=>{
+            type.map((subitem)=>{
+                if(item.name === subitem){
+                    listAPI.push(item.url)
+                }
+            })
+        })
+        const listData = []
+        const dbDamge =  []
+        const halfDamage = []
+        const noDamage = []
+        const temp = []
+        // const charmander = await response2.json()
+        
+        listAPI.map((item)=>{
+            console.log("in loop fetch "+item)
+            async function get_db_Damage_Data(item){
+                const response3 = await fetch(item)
+                const getLink = await response3.json()
+                async function getList(item){
+                    getLink.damage_relations.double_damage_from.map((item)=>temp.push(item.name))
+                    // return temp
+                }
+                let a  = await getList(item)
+                console.log(a)
+                // getLink.damage_relations.double_damage_from.map((item)=>temp.push(item.name))
+                // return temp
+            }
+            get_db_Damage_Data(item)
+        })
+
+
+    
+            // const dbDamge =  []
+
+            // getLink.damage_relations.double_damage_from.map((item)=>{
+            //     dbDamge.push(item.name)
+            //     // console.log(item.name)
+            // })
+            // return dbDamge
+            // return dbDamge
+        }
+
+        // getData("https://pokeapi.co/api/v2/type/12/")
+        // listData.map((item)=>{
+        //     console.log(item)
+        // })
+    //     const test = []
+      
+            
+
+        
+        // use the charmandar data as desired
+    
+    
+    getCharmandar()
+    return(
+        <h1>test</h1>
+    )
+
+}
 export default MyType

@@ -9,7 +9,7 @@ const Myhome =()=> {
   return (
     <div>
            <NavBar></NavBar>
-            <KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={151} kantoNumberStart={0}></KantoFetchRegion>
+           <KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={151} kantoNumberStart={0}></KantoFetchRegion>
     </div>
      
   

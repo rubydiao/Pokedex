@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route,HashRouter } from "react-router-dom";
 import MyHome from './forRoute/Home';
 import KantoFetchRegion from './forRoute/Kanto/KantoFetchRegion';
 import TestGetParams from './forRoute/testGetparams';
+import National from './forRoute/Kanto/National';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // JSX
@@ -29,6 +30,7 @@ root.render(
         <Route path={'/alola'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={809} kantoNumberStart={721}></KantoFetchRegion>} />
         <Route path={'/galar'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={905} kantoNumberStart={809}></KantoFetchRegion>} />
         <Route path={'/paldea'} element={<KantoFetchRegion url="https://pokeapi.co/api/v2/pokedex/1/" kantoNumberEnd={1008} kantoNumberStart={905}></KantoFetchRegion>} />
+        <Route path={'/national'} element={<National url="https://pokeapi.co/api/v2/pokedex/1/" ></National>} />
 
         <Route path={'/kanto/pokemon'} element={<TestGetParams/>} />
 

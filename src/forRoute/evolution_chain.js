@@ -59,7 +59,7 @@ const Evolution_Chain = ({chain_url}) => {
                   return <Col>
                   <Alert variant="secondary">
                   <CardGroup expand="lg">
-                    <Card style={{ width: '15rem '}} >
+                    <Card.Link style={{ width: '15rem ',margin: "0 auto", textDecoration: 'none'}} href={`/Pokedex/#/kanto/pokemon?pokemon=${GetOnlyNum(item[1])}`} target='_blank'>
                       <Card.Img variant="top" 
                       src={FillZero(GetOnlyNum(item[1]))} 
                       style={{height: '280px' ,width: '230px' , margin: "0 auto"}}
@@ -71,7 +71,7 @@ const Evolution_Chain = ({chain_url}) => {
                         </Card.Text>
                   
                       </Card.Body>
-                    </Card>
+                    </Card.Link>
                   </CardGroup>
                   </Alert>
                     </Col>

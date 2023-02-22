@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom"
 import NavBar from "./Navbar"
 import "./datacss.css"
 import Pkm_Species from "./pokemon_species"
-import MyType from "../showType"
+import MyType,{Weaknesstype} from "../showType"
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -130,10 +130,16 @@ const TestGetParams = ()=>{
                     props={{count: data.id}}
                 />
                   </Col>
+                    <Col>
+                  <Alert.Heading>Weakness Type</Alert.Heading>
+                  {/* <Weaknesstype props={{count:  data.id}}></Weaknesstype> */}
+
+                  </Col>
                     </Row>
                 <Row>
                   
                   <Col>
+                  
                   <Alert.Heading>Ability</Alert.Heading>
                 {data.abilities.map((item)=>
                     <Button variant="warning" style={{margin: "5px 15px", 
@@ -172,7 +178,7 @@ const TestGetParams = ()=>{
               </tbody>
             </Table>
             <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/"+String(params.get("pokemon"))}></Pkm_Species>
-            {/* <NextPage page_url={String(params.get("pokemon"))}></NextPage> */}
+            <NextPage page_url={String(params.get("pokemon"))}></NextPage>
             </>
             
       

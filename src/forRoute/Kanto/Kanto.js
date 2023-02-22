@@ -76,55 +76,6 @@ const Kanto = ({myurl,kantoNumberEnd,kantoNumberStart}) =>{
       
       
   }
-  // const DisplayPkm = (pg_active,pkn_arr,size_data) =>{
-  //       var cardList = []
-  //       var tempPg = pg_active*3
-  //       // console.log(tempPg)
-  //       // console.log(size_data)
-  //       if(size_data < tempPg){        
-  //         // console.log(tempPg+"in if")
-
-  //         let sum = tempPg - size_data 
-  //         tempPg = tempPg - sum
-  //         // console.log(tempPg+"after substract")
-  //       }
-  //       // console.log(tempPg)
-
-  //       for(let i = (pg_active*3) - 3 ; i < tempPg ; i++){
-  //         // console.log(pkn_arr[i])
-
-  //         for(let j = 0 ; j < pkn_arr[i].length ; j++){
-  //           cardList.push(
-  //                   <Col >
-  //                     <Card style={{ width: '15rem ', marginBottom: '25px'}} >
-  //                       <Card.Img variant="top" style={{height: '280px' ,width: '230px'}}
-  //                       src={FillZero(parseInt(pkn_arr[i][j][1]))}
-  //                       />
-  //                       <Card.Body>
-  //                         <Card.Title> {pkn_arr[i][j][0]}</Card.Title>
-  //                         <Card.Text>
-  //                           Pokemon Number: #{pkn_arr[i][j][1]}
-  //                         </Card.Text>
-  //                         <MyType key={pkn_arr[i][1]}
-  //                             props={{count: pkn_arr[i][j][1]}}
-  //                         />
-  //                         <Button variant="success" href={`/Pokedex/#/kanto/pokemon?pokemon=${pkn_arr[i][j][1]}`}
-  //                         style={{
-  //                           padding: "5px 80px",
-  //                           marginTop: "10px"
-  //                         }}
-  //                         >Detail!</Button>
-  //                       </Card.Body>
-  //                     </Card>
-  //                     </Col>
-  //           )
-  //       }
-  //       }
-  //       return <Row style={{ marginBottom: '40px'}}>{cardList}</Row>
-      
-    
-   
-  // }
 
     return(
         <>

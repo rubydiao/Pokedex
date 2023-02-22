@@ -2,7 +2,7 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import MyType from '../../showType';
+import MyType , {Weaknesstype} from '../../showType';
 import { Button, CardGroup } from "react-bootstrap";
 
 const DisplayPkm = ({pg_active,pkn_arr,size_data}) =>{
@@ -55,6 +55,7 @@ const DisplayPkm = ({pg_active,pkn_arr,size_data}) =>{
                         marginTop: "10px"
                         }}
                         >Detail!</Button>
+                        {/* <Weaknesstype props={{count: pkn_arr[i][j][1]}}></Weaknesstype> */}
                     </Card.Body>
                     </Card>
                     </Col>
