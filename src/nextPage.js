@@ -15,20 +15,20 @@ const NextPage = ({page_url}) =>{
                 <Row  style={{margin: '15px 0'}}>
                     <Col className="d-grid gap-2">
                         {pagePrevious >= 1 &&
-                        <Button variant="primary" size="lg" href={`Pokedex/#/kanto/pokemon?pokemon=${pagePrevious}`} target='_blank'>
+                        <Button variant="primary" size="lg" href={`/Pokedex/#/kanto/pokemon?pokemon=${pagePrevious}`} target='_blank'>
                             Previous
                         </Button>}
                     </Col>
                     <Col className="d-grid gap-2">
                         {pageNext <= 1008 &&
-                        <Button variant="success" size="lg" href={`Pokedex/#/kanto/pokemon?pokemon=${pageNext}`} target='_blank'>
+                        <Button variant="success" size="lg" href={`/Pokedex/#/kanto/pokemon?pokemon=${pageNext}`} target='_blank'>
                             Next
                         </Button>}
                     </Col>
               </Row>
               <Row  style={{margin: '15px 0'}}>
                         <Col className="d-grid gap-2">
-                        <Button variant="secondary" size="lg" href={`Pokedex/#/kanto`}>
+                        <Button variant="secondary" size="lg" href={`/Pokedex/#/kanto`}>
                             Homepage
                         </Button>
                     </Col>
