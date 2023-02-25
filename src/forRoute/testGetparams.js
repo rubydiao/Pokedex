@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom"
 import NavBar from "./Navbar"
 import "./datacss.css"
 import Pkm_Species from "./pokemon_species"
-import MyType,{Weaknesstype} from "../showType"
+import MyType from "../showType"
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -16,6 +16,7 @@ import {
   } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import NextPage from "../nextPage"
+import Weakness from "./Kanto/Weakness"
 
 ChartJS.register(
     CategoryScale,
@@ -132,6 +133,7 @@ const TestGetParams = ()=>{
                   </Col>
                     <Col>
                   <Alert.Heading>Weakness Type</Alert.Heading>
+                  <Weakness props={{count: data.id}}></Weakness>
                   {/* <Weaknesstype props={{count:  data.id}}></Weaknesstype> */}
 
                   </Col>
