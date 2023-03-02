@@ -99,7 +99,7 @@ const MyType = ({props}) => {
                             )
                         case "fighting":
                             return(
-                                <Button  style={{marginRight: "15px", backgroundColor: "#b9c9d7",border: "1px solid #b9c9d7",
+                                <Button  style={{marginRight: "15px", backgroundColor: "#b54",border: "1px solid #b54",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                                 
@@ -107,6 +107,13 @@ const MyType = ({props}) => {
                         case "rock":
                             return(
                                 <Button  style={{marginRight: "15px", backgroundColor: "#B8A038",border: "1px solid #B8A038",
+                                padding: "10px 15px"
+                                }}>{item.type.name}</Button>
+                            
+                        )
+                        case "flying":
+                            return(
+                                <Button  style={{marginRight: "15px", backgroundColor: "#89f",border: "1px solid #89f",
                                 padding: "10px 15px"
                                 }}>{item.type.name}</Button>
                             

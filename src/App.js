@@ -177,12 +177,12 @@ const App = ({arr_pkm}) => {
                   
               )
           case "fighting":
-              return(
-                  <Button  style={{marginRight: "15px", backgroundColor: "#b9c9d7",border: "1px solid #b9c9d7",
-                  padding: "10px 15px"
-                  }}>{item}</Button>
-                  
-              )
+                return(
+                    <Button  style={{marginRight: "15px", backgroundColor: "#b54",border: "1px solid #b54",
+                    padding: "10px 15px"
+                    }}>{item}</Button>
+                    
+                )
           case "rock":
               return(
                   <Button  style={{marginRight: "15px", backgroundColor: "#B8A038",border: "1px solid #B8A038",
@@ -190,6 +190,13 @@ const App = ({arr_pkm}) => {
                   }}>{item}</Button>
               
           )
+          case "flying":
+            return(
+                <Button  style={{marginRight: "15px", backgroundColor: "#89f",border: "1px solid #89f",
+                padding: "10px 15px"
+                }}>{item}</Button>
+            
+            )
           default:
               return(
                   <Button variant="secondary" style={{marginRight: "15px",
