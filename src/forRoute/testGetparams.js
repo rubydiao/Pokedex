@@ -17,7 +17,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import NextPage from "../nextPage"
 import Weakness from "./Kanto/Weakness"
-
+import PokemonEntries from "./Kanto/PokemonEntries"
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -38,7 +38,9 @@ const TestGetParams = ()=>{
         .then((res) => res.json())
         .then((data)=>{
             setData(data)
-            setLoading(false)}
+            setLoading(false)
+          }
+            
         )
         
     },[url])
@@ -134,14 +136,11 @@ const TestGetParams = ()=>{
                     <Col>
                   <Alert.Heading>Weakness Type</Alert.Heading>
                   <Weakness props={{count: data.id}}></Weakness>
-                  {/* <Weaknesstype props={{count:  data.id}}></Weaknesstype> */}
-
                   </Col>
                     </Row>
+
                 <Row>
-                  
                   <Col>
-                  
                   <Alert.Heading>Ability</Alert.Heading>
                 {data.abilities.map((item)=>
                     <Button variant="warning" style={{margin: "5px 15px", 
@@ -153,17 +152,19 @@ const TestGetParams = ()=>{
                    </Col>
                    <Col> 
                    <Alert.Heading>Height and Weight</Alert.Heading>
-                  <Row><Col>
-                  <Button variant="success">Height: {data.height}</Button>
+                  <Row>
+                    <Col>
+                    <Button variant="success">Height: {data.height}</Button>
 
-                  </Col>
-                  <Col>
-                  <Button variant="primary">Weight: {data.weight}</Button>
+                    </Col>
+                    <Col>
+                    <Button variant="primary">Weight: {data.weight}</Button>
 
-                  </Col></Row>
-          
-        </Col>
+                    </Col>
                   </Row>
+          
+                    </Col>
+                </Row>
                
               <hr></hr>
               <Alert.Heading>Stats</Alert.Heading>
@@ -172,14 +173,11 @@ const TestGetParams = ()=>{
                   </td>
         
                 </tr>
-                <tr>
-        
-                </tr>
-                <tr>
-                </tr>
+                
               </tbody>
             </Table>
             <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/"+String(params.get("pokemon"))}></Pkm_Species>
+            <PokemonEntries entry_number={data.id}></PokemonEntries>
             <NextPage page_url={String(params.get("pokemon"))}></NextPage>
             </>
             

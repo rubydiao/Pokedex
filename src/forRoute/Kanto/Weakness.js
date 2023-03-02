@@ -1,6 +1,6 @@
 import { useState ,useEffect} from "react"
 import Button from 'react-bootstrap/Button';
-import App from "../../App";
+import WeaknessShow from "../../WeaknessShow";
 
 const Weakness = ({props}) => {
     const [ data, setData ] = useState(null)
@@ -27,7 +27,7 @@ const Weakness = ({props}) => {
         console.log(typeArr)
     }
     return(
-       <App arr_pkm={{typeArr}}></App>
+       <WeaknessShow arr_pkm={{typeArr}}></WeaknessShow>
     )
 
 

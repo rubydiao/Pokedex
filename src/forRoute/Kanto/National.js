@@ -18,7 +18,7 @@ const National = ({url}) =>{
             setLoading(false)
         })
     },[])
-    // console.log(data)
+
     let listPg = []
     let arr = []
     let page = 0
@@ -33,6 +33,7 @@ const National = ({url}) =>{
             return "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+temp+".png"
           }
       }
+
     return(
         <>
             <NavBar></NavBar>
@@ -54,7 +55,8 @@ const National = ({url}) =>{
                   )
                   arr.push(<CardGroup>{listPg}</CardGroup>)
                   listPg=[]
-                }else if(data.pokemon_entries.length-1 === index){
+                }
+                else if(data.pokemon_entries.length-1 === index){
                     listPg.push(
                         <Card style={{height: '200px', marginBottom: '25px' , textAlign: 'center' , padding: '0 10px'}} >
                     <Card.Img variant="top" style={{height: '300px' ,width: '120px'}}
@@ -65,7 +67,8 @@ const National = ({url}) =>{
                     </Card>
                       )
                       arr.push(<CardGroup>{listPg}</CardGroup>)
-                }else{
+                }
+                else{
                     listPg.push(
                         <Card style={{height: '200px', marginBottom: '25px' , textAlign: 'center' , padding: '0 10px'}} >
                     <Card.Img variant="top" style={{height: '300px' ,width: '120px'}}
@@ -80,8 +83,6 @@ const National = ({url}) =>{
             }
                
             
-        
-          
             ) && arr
            
            }

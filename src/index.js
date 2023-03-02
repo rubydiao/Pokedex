@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
 import { BrowserRouter, Routes, Route,HashRouter } from "react-router-dom";
 import MyHome from './forRoute/Home';
 import KantoFetchRegion from './forRoute/Kanto/KantoFetchRegion';
 import TestGetParams from './forRoute/testGetparams';
 import National from './forRoute/Kanto/National';
+import PokemonEntries from './forRoute/Kanto/PokemonEntries';
+import PokemonMove from './forRoute/Kanto/PokemonMove';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // JSX
@@ -34,9 +34,9 @@ root.render(
 
         <Route path={'/kanto/pokemon'} element={<TestGetParams/>} />
 
-       {/* <Route path={'/'} element={<App></App>} /> */}
-        {/* <Route path={'kanto'} element={<TestGetParams />} /> */} 
-
+       {/* <Route path={'/'} element={<PokemonMove></PokemonMove>} /> */}
+              {/* <Route path={'/'} element={<PokemonEntries entry_number={1}></PokemonEntries>} /> */}
+   
 
         {/* </Route> */}
         </Routes>

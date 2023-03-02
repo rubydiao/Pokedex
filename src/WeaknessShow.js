@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-const App = ({arr_pkm}) => {
+const WeaknessShow = ({arr_pkm}) => {
   const [dbDamageone, setDbDamageOne] = useState(null);
   const [dbDamagetwo, setDbDamageTwo] = useState(null);
   // console.log(arr_pkm.typeArr)
@@ -20,38 +20,27 @@ const App = ({arr_pkm}) => {
         if(arr_pkm.length == 1){
           await data.results.map(async (item)=> item.name==type[0] &&urlType.push(item.url))
 
-        }else{
+        }
+        else{
           await data.results.map(async (item)=> (item.name==type[0]|| item.name==type[1] )&&urlType.push(item.url))
 
         }
-        // await data.results.map(async (item)=> (item.name==type[0]|| item.name==type[1] )&&urlType.push(item.url))
         if(urlType.length > 1){
           const resultType1 = await fetch(urlType[0])
           const dataType1 = await resultType1.json()
           const resultType2 = await fetch(urlType[1])
           const dataType2 = await resultType2.json()
-          
-          // await dataType1.damage_relations.double_damage_from.map(async (subItemType1)=>
-          //   dbType.push(subItemType1.name)
-          // )
-          // await dataType2.damage_relations.double_damage_from.map(async (subItemType2)=>
-          //   dbType.push(subItemType2.name)
-          // )
           setDbDamageOne(dataType1)
           setDbDamageTwo(dataType2)
           setLoading(false)
-        }else{
+        }
+        else{
           const resultType1 = await fetch(urlType[0])
           const dataType1 = await resultType1.json()
           setDbDamageOne(dataType1)
           setLoading(false)
 
         }
-        // const resultType1 = await fetch(urlType[0])
-        // const dataType1 = await resultType1.json()
-        // console.log(dbType)
-        // setDbDamageOne(dataType1);
-        // setLoading(false)
       }
 
       getData();
@@ -69,10 +58,9 @@ const App = ({arr_pkm}) => {
     if(!loading && dbDamagetwo==null){
         dbDamageone.damage_relations.double_damage_from.map(item=>dbType.push(item.name))
         finalArr = dbType
-        // // dbDamagetwo.damage_relations.double_damage_from.map(item=>dbType.push(item.name))
-        // console.log(dbDamageone)
-        // console.log(dbDamagetwo==null)
-    }else if(!loading && dbDamagetwo!=null){
+
+    }
+    else if(!loading && dbDamagetwo!=null){
       dbDamageone.damage_relations.double_damage_from.map(item=>dbType.push(item.name))
       dbDamagetwo.damage_relations.double_damage_from.map(item=>dbType2.push(item.name))
       dbDamageone.damage_relations.half_damage_from.length!=0 && dbDamageone.damage_relations.half_damage_from.map((item)=>hfType.push(item.name))
@@ -90,13 +78,8 @@ const App = ({arr_pkm}) => {
       let difference2 = dbType.filter(x => !hfType2.includes(x));
 
       finalArr = [...new Set(difference2.concat(difference1))]
-      // console.log(finalArr)
     }
-  // num.map((item)=>{
-  //   console.log(item)
-  // })
 
-  //  findAnyName()
   return(
     <>
     {!loading && finalArr.map((item)=>{
@@ -210,9 +193,8 @@ const App = ({arr_pkm}) => {
   
               }})}
     </>
-    // <h1>{num.damage_relations.map((item)=><p>{item.double_damage_from.name}</p>)}</h1>  
 )
  
 }
 
-export default App
+export default WeaknessShow
