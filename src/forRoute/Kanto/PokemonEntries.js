@@ -24,8 +24,10 @@ const PokemonEntries = ({entry_number})=>{
 
     return(
         <>
-                    <Container style={{marginTop: '50px' }}>
-                    <h1>Pokédex entries</h1>
+                    {
+                        !loading &&
+                        <Container style={{marginTop: '50px' }}>
+                    <h1>Pokédex entries {data.name[0].toUpperCase() + data.name.slice(1)}</h1>
                     <Table  striped bordered hover variant="dark">
       
                     <tbody>
@@ -46,6 +48,7 @@ const PokemonEntries = ({entry_number})=>{
                     </tbody>
                     </Table>
                     </Container>
+                    }
         </>
     )
 

@@ -7,8 +7,8 @@ import MyHome from './forRoute/Home';
 import KantoFetchRegion from './forRoute/Kanto/KantoFetchRegion';
 import TestGetParams from './forRoute/testGetparams';
 import National from './forRoute/Kanto/National';
-import PokemonEntries from './forRoute/Kanto/PokemonEntries';
 import PokemonMove from './forRoute/Kanto/PokemonMove';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // JSX
@@ -36,7 +36,7 @@ root.render(
 
        {/* <Route path={'/'} element={<PokemonMove></PokemonMove>} /> */}
               {/* <Route path={'/'} element={<PokemonEntries entry_number={1}></PokemonEntries>} /> */}
-   
+        
 
         {/* </Route> */}
         </Routes>

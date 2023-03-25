@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Table , Figure, Alert,Button,Row,Col} from "react-bootstrap"
+import { Table , Figure, Alert,Button,Row,Col, Container,Card} from "react-bootstrap"
 import { useLocation } from "react-router-dom"
 import NavBar from "./Navbar"
 import "./datacss.css"
@@ -18,6 +18,7 @@ import { Bar } from 'react-chartjs-2';
 import NextPage from "../nextPage"
 import Weakness from "./Kanto/Weakness"
 import PokemonEntries from "./Kanto/PokemonEntries"
+import MoveSet from "./Kanto/MoveSet"
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -26,7 +27,8 @@ ChartJS.register(
     Tooltip,
     Legend
   );
-const TestGetParams = ()=>{
+
+const TestGetParams = () =>{
     const [data , setData]= useState(null)
     const location = useLocation()
     const params = new URLSearchParams(location.search)
@@ -89,97 +91,124 @@ const TestGetParams = ()=>{
     return (
        
             !loading &&
-                <>
+                <Container>
                 <NavBar></NavBar>
         
                 <Table striped bordered hover
-                style={{marginTop: "150px"}}
+                style={{marginTop: "150px", width: '100%' }}
                 variant="dark"
                 >
               <thead>
                 <tr>
-                  <th >Pokemon picture</th>
+                  <th>Pokemon picture</th>
                   <th>Detail</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td rowSpan={3}
-                  style={{width: '30%', height: '500px'}}
-                  >
-                            <Figure>
-                    <Figure.Image
-                        width={640}
-                        height={480}
-                        // alt="171x180"
-                        src={FillZero(params.get("pokemon"))}
+                  <td style={{width: '20%'}}>
+                    {/* <Card style={{ width: '15rem ', margin: '0 auto'}} >
+                    <Card.Img variant="top" style={{height: '280px' ,width: '230px'}}
+                    src={FillZero(params.get("pokemon"))}
                     />
-                    <Button variant="secondary"
-                    style={{
-                        margin: "0 250px",
-                        padding: "0 80px",
-                        fontWeight: "bold"
-                    }}
-                    >{data.forms[0].name.charAt(0).toUpperCase()}{data.forms[0].name.slice(1)}</Button>{' '}
-                    </Figure>
+                    </Card> */}
+                      <Figure>
+                      <Figure.Image
+                          width={420}
+                          height={480}
+                          // alt="171x180"
+                          src={FillZero(params.get("pokemon"))}
+                          style={{
+                            display: 'block',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+
+                          }}
+                      />
+                      <Button variant="secondary"
+                      style={{
+                          margin: "0 250px",
+                          padding: "0 80px",
+                          fontWeight: "bold"
+                      }}
+                      >{data.forms[0].name.charAt(0).toUpperCase()}{data.forms[0].name.slice(1)}</Button>{' '}
+                      </Figure>
               
+               {/* <Button variant="secondary"
+                      style={{
+                          margin: "5px 250px",
+                          padding: "0 80px",
+                          fontWeight: "bold"
+                      }}
+                      >{data.forms[0].name.charAt(0).toUpperCase()}{data.forms[0].name.slice(1)}</Button>{' '} */}
                   </td>
-                  <td rowSpan={3}>
-                  <Alert variant="secondary">
-                    <Row>
-                    <Col>
-                  <Alert.Heading>Type</Alert.Heading>
-                  <MyType key={data.id}
-                    props={{count: data.id}}
-                />
-                  </Col>
-                    <Col>
-                  <Alert.Heading>Weakness Type</Alert.Heading>
-                  <Weakness props={{count: data.id}}></Weakness>
-                  </Col>
-                    </Row>
+                  <td style={{width:'80%'}}>
+                      <Alert variant="secondary" >
+                        <Row>
+                          <Col>
+                          <Alert.Heading>Type</Alert.Heading>
+                          <MyType key={data.id}
+                            props={{count: data.id}}
+                          />
+                          </Col>
+                            
+                        </Row>
+                        <Row>
+                          <Col>
+                          <Alert.Heading>Weakness Type</Alert.Heading>
+                          <Weakness props={{count: data.id}}></Weakness>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col>
+                          <Alert.Heading>Ability</Alert.Heading>
+                        {data.abilities.map((item)=>
+                            <Button variant="warning" style={{margin: "5px 15px", 
+                            padding: "10px 60px",
+                            }}
+                            
+                            >{item.ability.name}</Button>
+                        )}                  
+                          </Col>
+                     
+              
+                        </Row>
+                        <Row>
+                        <Col> 
+                      <Alert.Heading>Height and Weight</Alert.Heading>
+                        <Row>
+                        <Col>
+                        <Button variant="success">Height: {data.height/10} m</Button>
 
-                <Row>
-                  <Col>
-                  <Alert.Heading>Ability</Alert.Heading>
-                {data.abilities.map((item)=>
-                    <Button variant="warning" style={{margin: "5px 15px", 
-                    padding: "10px 60px",
-                    }}
-                    
-                    >{item.ability.name}</Button>
-                )}                  
-                   </Col>
-                   <Col> 
-                   <Alert.Heading>Height and Weight</Alert.Heading>
-                  <Row>
-                    <Col>
-                    <Button variant="success">Height: {data.height}</Button>
+                        </Col>
+                        <Col>
+                        <Button variant="primary">Weight: {data.weight/10} kg</Button>
 
-                    </Col>
-                    <Col>
-                    <Button variant="primary">Weight: {data.weight}</Button>
-
-                    </Col>
-                  </Row>
-          
-                    </Col>
-                </Row>
+                        </Col>
+                        </Row>
+                        </Col>
+                        </Row>
                
-              <hr></hr>
-              <Alert.Heading>Stats</Alert.Heading>
-              <Bar options={options} data={dataGraph} width={'480px'}/>
+       
                 </Alert>
                   </td>
         
                 </tr>
-                
+                <tr>
+                  <td colSpan={2}>
+                    <Alert variant="secondary">
+                    <Alert.Heading>Stats</Alert.Heading>
+              <Bar options={options} data={dataGraph} width={'480px'}/>
+                    </Alert>                 
+                  </td>
+                </tr>
               </tbody>
             </Table>
             <Pkm_Species species_url={"https://pokeapi.co/api/v2/pokemon-species/"+String(params.get("pokemon"))}></Pkm_Species>
             <PokemonEntries entry_number={data.id}></PokemonEntries>
+            <MoveSet poke_id={data.id}></MoveSet>
             <NextPage page_url={String(params.get("pokemon"))}></NextPage>
-            </>
+            </Container>
             
       
     );

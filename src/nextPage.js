@@ -1,4 +1,4 @@
-import { Table , Figure, Alert,Button,Row,Col} from "react-bootstrap"
+import { Table , Figure, Alert,Button,Row,Col, Container} from "react-bootstrap"
 
 
 const NextPage = ({page_url}) =>{
@@ -7,7 +7,7 @@ const NextPage = ({page_url}) =>{
 
 
     return(
-        <>
+        <Container>
             
             <Alert style={{backgroundColor: '#212529'}}>
                 <Alert.Heading style={{color: 'white',textAlign: 'center'}}></Alert.Heading>
@@ -34,7 +34,7 @@ const NextPage = ({page_url}) =>{
                     </Col>
               </Row>
           </Alert>
-          </>
+          </Container>
 
     )
 }
