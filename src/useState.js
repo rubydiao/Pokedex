@@ -1,112 +1,126 @@
-import logo from './logo.svg';
-import Kanto from './forRoute/Kanto';
-import './App.css';
-import { useState } from 'react';
-const App = () => {
+var region = []
+var Tm_move = []
+var moveType = []
+data.moves.map(item=>
+    Array.from(item.version_group_details).map(
+        (subitem)=>{
+            region.push(subitem.version_group.name)
+            Tm_move.push([subitem.version_group.name,item.move.name,subitem.move_learn_method.name,subitem.level_learned_at])
+            moveType.push(subitem.move_learn_method.name)
+        }))
+region = [...new Set(region)]
+moveType = [...new Set(moveType)]
+// console.log(region)
 
-//  <FetchData props={{url: "https://pokeapi.co/api/v2/type/"}}/>
-    // const [kantoData] = Kanto("https://pokeapi.co/api/v2/pokedex/2/")
+// setDataTm(region[0])
 
-    // const [myname,setMyname] = useState({brand: "Ford",
-    // model: "Mustang",
-    // year: "1964",
-    // color: "red"}
-        
-         
-        
-    // )
-    const [myname, setMyname] = useState({
-        input: {
-          author: {
-            id: -1,
-            author: {
-              fName:'diao',
-              lName: 'narutchai'
-            }
-          },
-          message: {
-            id: -1,
-            text: 'txt',
-            date: '2023'
-          }
+const ShowTable = ({arr_data})=>{
+    var moveSplit = []
+    arr_data.map((item,index)=>{
+        if(item[0]==dataTm){
+           moveSplit.push(item[2])
         }
-      });
-    return(
-        <>
-        <label>Chane fName</label>
-        <input
-      
-            onChange={
-                (e)=>setMyname(
-                    { 
-                       input:{
-                            ...myname.input,
-                            author: {
-                                ...myname.input.author,
-                                author:
-                                {
-                                    ...myname.input.author.author,
-                                    fName: e.target.value
-                                }
-                            }
-                       }
+                 
+    })
+    moveSplit = [...new Set(moveSplit)]
+    // console.log(dataTm)
+    var tempTable = []
+    var completedTable = []
+    // console.log("region: "+dataTm)
+    // completedTable.push(
+    //     <h1 style={{textAlign: 'right',marginTop: '50px'}}><FirstUpper text={dataTm}/></h1>
+    // )
+    moveSplit.map((item,index)=>{
+        // console.log("type"+item)
+        tempTable.push(
+            <Col>
+            <h1><FirstUpper text={item}/></h1>
+            <Table striped bordered hover size="xl" variant="dark">
+            <thead>
+                <tr>                        
+                    
+                    <th>
+                        Move name
+                    </th>
+                    {
+                        item=="level-up" && <th>Lv</th>
                     }
-                )
-            }
-           
-        
-        />
-        <label>Chane authorID</label>
-        <input
-      
-            onChange={
-                (e)=>setMyname(
-                    { 
-                       input:{
-                            ...myname.input,
-                            author: {
-                                ...myname.input.author,
-                                id: e.target.value
-                                
-                            }
-                       }
-                    }
-                )
-            }
-           
-        
-        />
-         <label>Chane message Date</label>
-        <input
-      
-            onChange={
-                (e)=>setMyname(
-                    { 
-                       input:{
-                            ...myname.input,
-                            message: {
-                                ...myname.input.message,
-                                date: e.target.value
-                                
-                            }
-                       }
-                    }
-                )
-            }
-           
-        
-        />
-        
-        {/* <p>{myname[1].length}</p> */}
-        <p>authorID: {myname.input.author.id}</p>
-        <p>authorName: {myname.input.author.author.fName}</p>
-        <p>authorName: {myname.input.author.author.lName}</p>
-        <p>msgID {myname.input.message.id}</p>
-         <p>text {myname.input.message.text}</p>
-        <p>messageDate: {myname.input.message.date}</p> 
-       
-        </>
-    )
-}
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Power
+                    </th>
+                    <th>
+                        Accuracy
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+   
+            {
+                Tm_move.map((subitem)=>{
+                    if(subitem[0]==dataTm && subitem[2] == item){
+                        // console.log(subitem[0]+" "+dataTm)
+                        return (
+                            <tr>
 
-export default App;
+                            <td>
+                                <FirstUpper text={String(subitem[1]).replace("-"," ")}></FirstUpper>
+                            </td>
+                            {
+                                item=="level-up" && <td>{subitem[3]}</td>
+                            }
+                            <PokemonMove moveName={subitem[1]} />
+                        </tr>
+                        )
+                    }
+                    
+                        
+                    
+                })
+            }
+            </tbody>
+            </Table>
+            </Col>
+        )
+        if((index+1)%2 === 0 && (index+1)!== moveSplit.length){
+            console.log("คู่")
+            completedTable.push(
+                <Row style={{marginTop: '50px'}}>
+                    {tempTable}
+                </Row>
+            )
+            tempTable = []
+        }
+        else if((index+1) === moveSplit.length){
+            if((index+1)%2 !== 0) {
+                completedTable.push(
+                    <Row style={{marginTop: '50px'}}>
+                        {tempTable}
+                    </Row>
+                )
+                tempTable = []
+            }else{
+                completedTable.push(
+                    <Row style={{marginTop: '50px'}}>
+                        {tempTable}
+                    </Row>
+                )
+                tempTable = []
+            }
+        } 
+       
+        
+    })
+    // console.log(completedTable)
+    return completedTable
+    // return <h1>test</h1>
+
+}
+const FirstUpper= ({text}) =>{
+    return text[0].toUpperCase()+text.slice(1)
+}

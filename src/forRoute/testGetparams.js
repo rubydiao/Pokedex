@@ -5,6 +5,8 @@ import NavBar from "./Navbar"
 import "./datacss.css"
 import Pkm_Species from "./pokemon_species"
 import MyType from "../showType"
+import Spinner from 'react-bootstrap/Spinner';
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -100,8 +102,8 @@ const TestGetParams = () =>{
                 >
               <thead>
                 <tr>
-                  <th>Pokemon picture</th>
-                  <th>Detail</th>
+                  <th style={{textAlign:'center'}}>Pokemon picture</th>
+                  <th style={{textAlign:'center'}}>Detail</th>
                 </tr>
               </thead>
               <tbody>

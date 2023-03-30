@@ -52,14 +52,14 @@ const Evolution_Chain = ({chain_url}) => {
           <>
             
             <Alert style={{backgroundColor: '#212529'}}>
-                <Alert.Heading style={{color: 'white',textAlign: 'center'}}>Evolution chain</Alert.Heading>
+                <Alert.Heading style={{color: 'white',textAlign: 'center', }}>Evolution chain</Alert.Heading>
 
                 <Row >
                 {evo_arr.map((item)=>{
                   return <Col>
-                  <Alert variant="secondary">
+                  <Alert variant='secondary' style={{border:'12px solid rgb(237 168 198)'}}>
                   <CardGroup expand="lg">
-                    <Card.Link style={{ width: '15rem ',margin: "0 auto", textDecoration: 'none'}} href={`/Pokedex/#/kanto/pokemon?pokemon=${GetOnlyNum(item[1])}`} target='_blank'>
+                    <Card.Link style={{ width: '15rem ',margin: "0 auto", textDecoration: 'none' }} href={`/Pokedex/#/kanto/pokemon?pokemon=${GetOnlyNum(item[1])}`} target='_blank'>
                       <Card.Img variant="top" 
                       src={FillZero(GetOnlyNum(item[1]))} 
                       style={{height: '280px' ,width: '230px' , margin: "0 auto"}}

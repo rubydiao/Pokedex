@@ -40,12 +40,19 @@ const MoveSet = ({poke_id}) =>{
 
         // setDataTm(region[0])
 
-        const ShowTable = ({arr_data})=>{
+        const ShowTable = ({arr_data,region})=>{
             var moveSplit = []
             arr_data.map((item,index)=>{
-                if(item[0]==dataTm){
-                   moveSplit.push(item[2])
+                if(dataTm!=null){
+                    if(item[0]==dataTm){
+                        moveSplit.push(item[2])
+                     }
+                }else{
+                    if(item[0]==region){
+                        moveSplit.push(item[2])
+                    }
                 }
+                
                          
             })
             moveSplit = [...new Set(moveSplit)]
@@ -89,30 +96,42 @@ const MoveSet = ({poke_id}) =>{
            
                     {
                         Tm_move.map((subitem)=>{
-                            if(subitem[0]==dataTm && subitem[2] == item){
-                                // console.log(subitem[0]+" "+dataTm)
-                                return (
-                                    <tr>
-
-                                    <td>
-                                        <FirstUpper text={String(subitem[1]).replace("-"," ")}></FirstUpper>
-                                    </td>
-                                    {
-                                        item=="level-up" && <td>{subitem[3]}</td>
-                                    }
-                                    <PokemonMove moveName={subitem[1]} />
-                                    {/* <td>
-                                        temp
-                                    </td>
-                                    <td>
-                                        temp
-                                    </td>
-                                    <td>
-                                        temp
-                                    </td> */}
-                                </tr>
-                                )
+                            if(dataTm!=null){
+                                if(subitem[0]==dataTm && subitem[2] == item){
+                                    // console.log(subitem[0]+" "+dataTm)
+                                    return (
+                                        <tr>
+    
+                                        <td>
+                                            <FirstUpper text={String(subitem[1]).replace("-"," ")}></FirstUpper>
+                                        </td>
+                                        {
+                                            item=="level-up" && <td>{subitem[3]}</td>
+                                        }
+                                        <PokemonMove moveName={subitem[1]} />
+    
+                                    </tr>
+                                    )
+                                }
+                            }else{
+                                if(subitem[0]==region && subitem[2] == item){
+                                    // console.log(subitem[0]+" "+dataTm)
+                                    return (
+                                        <tr>
+    
+                                        <td>
+                                            <FirstUpper text={String(subitem[1]).replace("-"," ")}></FirstUpper>
+                                        </td>
+                                        {
+                                            item=="level-up" && <td>{subitem[3]}</td>
+                                        }
+                                        <PokemonMove moveName={subitem[1]} />
+    
+                                    </tr>
+                                    )
+                                }
                             }
+                            
                             
                                 
                             
@@ -180,11 +199,16 @@ const MoveSet = ({poke_id}) =>{
                         </Nav>
                     </Navbar>
                 {
-                    dataTm!=null && 
+                   
+                    dataTm!=null ?
                     <>
                     <h1 style={{textAlign: 'right',marginTop: '50px'}}><FirstUpper text={dataTm}/></h1>
                     <ShowTable arr_data={Tm_move}></ShowTable>
-                    </>
+                    </>:
+                      <>
+                      <h1 style={{textAlign: 'right',marginTop: '50px'}}><FirstUpper text={region[0]}/></h1>
+                      <ShowTable arr_data={Tm_move} region={region[0]}></ShowTable>
+                      </>
 
                 
                 }   
